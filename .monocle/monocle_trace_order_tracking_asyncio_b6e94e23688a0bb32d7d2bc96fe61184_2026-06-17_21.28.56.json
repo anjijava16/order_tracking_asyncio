@@ -1,0 +1,817 @@
+[{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.completion",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "2cdbf90cc97881f3",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "2442806a7e03daf8",
+    "start_time": "2026-06-18T01:28:52.966473Z",
+    "end_time": "2026-06-18T01:28:52.969824Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/main.py:2420",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:52.966540Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are an inventory specialist. Given a SKU, use the check_inventory tool to report on-hand quantity and whether the item needs reordering. Flag any out-of-stock items explicitly.\\n\\nYou are an agent. Your internal name is \\\"inventory_agent\\\". The description about you is \\\"Checks stock levels and reorder needs for ordered items.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: shipping_agent\\nAgent description: Tracks carrier, tracking number and delivery ETA.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `shipping_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Check stock for the items in order ORD-1001. If you don't know the SKUs, check SKU-APL-01, SKU-KBD-07 and SKU-MON-22.\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:52.969802Z",
+            "attributes": {}
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:52.969809Z",
+            "attributes": {}
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "bb85366737668e13",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "272993480ac4a309",
+    "start_time": "2026-06-18T01:28:52.987063Z",
+    "end_time": "2026-06-18T01:28:54.025670Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/openai/_legacy_response.py:384",
+        "workflow.name": "order_tracking_asyncio",
+        "span.type": "inference.modelapi",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.acompletion",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "272993480ac4a309",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "2442806a7e03daf8",
+    "start_time": "2026-06-18T01:28:52.976204Z",
+    "end_time": "2026-06-18T01:28:54.026209Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/llms/openai/openai.py:616",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "entity.3.name": "check_inventory",
+        "entity.3.type": "tool.function",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 3,
+        "span.subtype": "tool_call"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:52.976277Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are an inventory specialist. Given a SKU, use the check_inventory tool to report on-hand quantity and whether the item needs reordering. Flag any out-of-stock items explicitly.\\n\\nYou are an agent. Your internal name is \\\"inventory_agent\\\". The description about you is \\\"Checks stock levels and reorder needs for ordered items.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: shipping_agent\\nAgent description: Tracks carrier, tracking number and delivery ETA.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `shipping_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Check stock for the items in order ORD-1001. If you don't know the SKUs, check SKU-APL-01, SKU-KBD-07 and SKU-MON-22.\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.026169Z",
+            "attributes": {
+                "response": "{\"assistant\": null}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:54.026187Z",
+            "attributes": {
+                "completion_tokens": 18,
+                "prompt_tokens": 492,
+                "total_tokens": 510,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "google.adk.tools.function_tool.FunctionTool.run_async",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "4e9e5383ff3e99db",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "2442806a7e03daf8",
+    "start_time": "2026-06-18T01:28:54.027379Z",
+    "end_time": "2026-06-18T01:28:54.027527Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/google/adk/flows/llm_flows/functions.py:788",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "tool.adk",
+        "entity.1.name": "check_inventory",
+        "entity.1.description": "Return stock levels for a SKU and whether a reorder is needed.\n\nArgs:\n    sku: The stock keeping unit, e.g. ``\"SKU-KBD-07\"``.\n\nReturns:\n    A dict with on-hand quantity and a reorder flag, or an error.",
+        "entity.2.name": "inventory_agent",
+        "entity.2.type": "agent.adk",
+        "span.type": "agentic.tool.invocation",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 2,
+        "span.subtype": "content_generation",
+        "inference.decision.span.id": "272993480ac4a309"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.027430Z",
+            "attributes": {
+                "input": "{\"sku\": \"SKU-APL-01\"}"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.027508Z",
+            "attributes": {
+                "response": "{'status': 'success', 'sku': 'SKU-APL-01', 'name': 'Wireless Earbuds', 'on_hand': 142, 'reorder_needed': False}"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.completion",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "34523563c7534a8b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "2442806a7e03daf8",
+    "start_time": "2026-06-18T01:28:54.030022Z",
+    "end_time": "2026-06-18T01:28:54.030316Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/main.py:2420",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.030109Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are an inventory specialist. Given a SKU, use the check_inventory tool to report on-hand quantity and whether the item needs reordering. Flag any out-of-stock items explicitly.\\n\\nYou are an agent. Your internal name is \\\"inventory_agent\\\". The description about you is \\\"Checks stock levels and reorder needs for ordered items.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: shipping_agent\\nAgent description: Tracks carrier, tracking number and delivery ETA.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `shipping_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Check stock for the items in order ORD-1001. If you don't know the SKUs, check SKU-APL-01, SKU-KBD-07 and SKU-MON-22.\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"sku\\\": \\\"SKU-APL-01\\\", \\\"name\\\": \\\"Wireless Earbuds\\\", \\\"on_hand\\\": 142, \\\"reorder_needed\\\": false}\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.030296Z",
+            "attributes": {}
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:54.030302Z",
+            "attributes": {}
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "a27e180d0b6529ae",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "13548cbb6f4bf43c",
+    "start_time": "2026-06-18T01:28:54.031294Z",
+    "end_time": "2026-06-18T01:28:54.793694Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/openai/_legacy_response.py:384",
+        "workflow.name": "order_tracking_asyncio",
+        "span.type": "inference.modelapi",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.acompletion",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "13548cbb6f4bf43c",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "2442806a7e03daf8",
+    "start_time": "2026-06-18T01:28:54.030478Z",
+    "end_time": "2026-06-18T01:28:54.794299Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/llms/openai/openai.py:616",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "entity.3.name": "check_inventory",
+        "entity.3.type": "tool.function",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 3,
+        "span.subtype": "tool_call"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.030559Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are an inventory specialist. Given a SKU, use the check_inventory tool to report on-hand quantity and whether the item needs reordering. Flag any out-of-stock items explicitly.\\n\\nYou are an agent. Your internal name is \\\"inventory_agent\\\". The description about you is \\\"Checks stock levels and reorder needs for ordered items.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: shipping_agent\\nAgent description: Tracks carrier, tracking number and delivery ETA.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `shipping_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Check stock for the items in order ORD-1001. If you don't know the SKUs, check SKU-APL-01, SKU-KBD-07 and SKU-MON-22.\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"sku\\\": \\\"SKU-APL-01\\\", \\\"name\\\": \\\"Wireless Earbuds\\\", \\\"on_hand\\\": 142, \\\"reorder_needed\\\": false}\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.794266Z",
+            "attributes": {
+                "response": "{\"assistant\": null}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:54.794284Z",
+            "attributes": {
+                "completion_tokens": 52,
+                "prompt_tokens": 556,
+                "total_tokens": 608,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "google.adk.tools.function_tool.FunctionTool.run_async",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "f77d360cbe154c9b",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "2442806a7e03daf8",
+    "start_time": "2026-06-18T01:28:54.795366Z",
+    "end_time": "2026-06-18T01:28:54.795527Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/google/adk/flows/llm_flows/functions.py:788",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "tool.adk",
+        "entity.1.name": "check_inventory",
+        "entity.1.description": "Return stock levels for a SKU and whether a reorder is needed.\n\nArgs:\n    sku: The stock keeping unit, e.g. ``\"SKU-KBD-07\"``.\n\nReturns:\n    A dict with on-hand quantity and a reorder flag, or an error.",
+        "entity.2.name": "inventory_agent",
+        "entity.2.type": "agent.adk",
+        "span.type": "agentic.tool.invocation",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 2,
+        "span.subtype": "content_generation",
+        "inference.decision.span.id": "13548cbb6f4bf43c"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.795430Z",
+            "attributes": {
+                "input": "{\"sku\": \"SKU-KBD-07\"}"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.795511Z",
+            "attributes": {
+                "response": "{'status': 'success', 'sku': 'SKU-KBD-07', 'name': 'Mechanical Keyboard', 'on_hand': 8, 'reorder_needed': True}"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "google.adk.tools.function_tool.FunctionTool.run_async",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "402b5612e62dcd32",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "2442806a7e03daf8",
+    "start_time": "2026-06-18T01:28:54.795762Z",
+    "end_time": "2026-06-18T01:28:54.795861Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/google/adk/flows/llm_flows/functions.py:788",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "tool.adk",
+        "entity.1.name": "check_inventory",
+        "entity.1.description": "Return stock levels for a SKU and whether a reorder is needed.\n\nArgs:\n    sku: The stock keeping unit, e.g. ``\"SKU-KBD-07\"``.\n\nReturns:\n    A dict with on-hand quantity and a reorder flag, or an error.",
+        "entity.2.name": "inventory_agent",
+        "entity.2.type": "agent.adk",
+        "span.type": "agentic.tool.invocation",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 2,
+        "span.subtype": "content_generation"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.795798Z",
+            "attributes": {
+                "input": "{\"sku\": \"SKU-MON-22\"}"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.795850Z",
+            "attributes": {
+                "response": "{'status': 'success', 'sku': 'SKU-MON-22', 'name': '27-inch Monitor', 'on_hand': 0, 'reorder_needed': True}"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.completion",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "8c787b9bde9a79d9",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "2442806a7e03daf8",
+    "start_time": "2026-06-18T01:28:54.798124Z",
+    "end_time": "2026-06-18T01:28:54.798385Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/main.py:2420",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.798196Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are an inventory specialist. Given a SKU, use the check_inventory tool to report on-hand quantity and whether the item needs reordering. Flag any out-of-stock items explicitly.\\n\\nYou are an agent. Your internal name is \\\"inventory_agent\\\". The description about you is \\\"Checks stock levels and reorder needs for ordered items.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: shipping_agent\\nAgent description: Tracks carrier, tracking number and delivery ETA.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `shipping_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Check stock for the items in order ORD-1001. If you don't know the SKUs, check SKU-APL-01, SKU-KBD-07 and SKU-MON-22.\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"sku\\\": \\\"SKU-APL-01\\\", \\\"name\\\": \\\"Wireless Earbuds\\\", \\\"on_hand\\\": 142, \\\"reorder_needed\\\": false}\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"sku\\\": \\\"SKU-KBD-07\\\", \\\"name\\\": \\\"Mechanical Keyboard\\\", \\\"on_hand\\\": 8, \\\"reorder_needed\\\": true}\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"sku\\\": \\\"SKU-MON-22\\\", \\\"name\\\": \\\"27-inch Monitor\\\", \\\"on_hand\\\": 0, \\\"reorder_needed\\\": true}\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.798367Z",
+            "attributes": {}
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:54.798372Z",
+            "attributes": {}
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "1b0bbccf00c41d04",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "af9e1a45b2dee10d",
+    "start_time": "2026-06-18T01:28:54.798982Z",
+    "end_time": "2026-06-18T01:28:56.525752Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/openai/_legacy_response.py:384",
+        "workflow.name": "order_tracking_asyncio",
+        "span.type": "inference.modelapi",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "span.subtype": "turn_end"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.acompletion",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "af9e1a45b2dee10d",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "2442806a7e03daf8",
+    "start_time": "2026-06-18T01:28:54.798495Z",
+    "end_time": "2026-06-18T01:28:56.526308Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/llms/openai/openai.py:616",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.798549Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are an inventory specialist. Given a SKU, use the check_inventory tool to report on-hand quantity and whether the item needs reordering. Flag any out-of-stock items explicitly.\\n\\nYou are an agent. Your internal name is \\\"inventory_agent\\\". The description about you is \\\"Checks stock levels and reorder needs for ordered items.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: shipping_agent\\nAgent description: Tracks carrier, tracking number and delivery ETA.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `shipping_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Check stock for the items in order ORD-1001. If you don't know the SKUs, check SKU-APL-01, SKU-KBD-07 and SKU-MON-22.\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"sku\\\": \\\"SKU-APL-01\\\", \\\"name\\\": \\\"Wireless Earbuds\\\", \\\"on_hand\\\": 142, \\\"reorder_needed\\\": false}\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"sku\\\": \\\"SKU-KBD-07\\\", \\\"name\\\": \\\"Mechanical Keyboard\\\", \\\"on_hand\\\": 8, \\\"reorder_needed\\\": true}\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"sku\\\": \\\"SKU-MON-22\\\", \\\"name\\\": \\\"27-inch Monitor\\\", \\\"on_hand\\\": 0, \\\"reorder_needed\\\": true}\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:56.526272Z",
+            "attributes": {
+                "response": "{\"assistant\": \"Here's the stock information for the items:\\n\\n- **Wireless Earbuds (SKU-APL-01):**\\n  - On-hand quantity: 142\\n  - Reorder needed: No\\n\\n- **Mechanical Keyboard (SKU-KBD-07):**\\n  - On-hand quantity: 8\\n  - Reorder needed: Yes\\n\\n- **27-inch Monitor (SKU-MON-22):**\\n  - On-hand quantity: 0\\n  - Reorder needed: Yes\\n  - **Note: This item is out of stock.**\\n\\nIf you need further assistance or information about the order, please let me know!\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:56.526292Z",
+            "attributes": {
+                "completion_tokens": 127,
+                "prompt_tokens": 694,
+                "total_tokens": 821,
+                "finish_reason": "stop",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "google.adk.agents.base_agent.BaseAgent.run_async",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "2442806a7e03daf8",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "38ce2e3850c5e71a",
+    "start_time": "2026-06-18T01:28:52.862692Z",
+    "end_time": "2026-06-18T01:28:56.527142Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/google/adk/runners.py:430",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "agent.adk",
+        "entity.1.name": "inventory_agent",
+        "entity.1.description": "Checks stock levels and reorder needs for ordered items.",
+        "entity.1.from_agent_span_id": "38ce2e3850c5e71a",
+        "last.inference": "af9e1a45b2dee10d:*",
+        "span.type": "agentic.invocation",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "scope.agentic.invocation": "a76090ab26151533aaf710842e0800df",
+        "entity.count": 1,
+        "span.subtype": "content_processing"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:52.862734Z",
+            "attributes": {
+                "input": [
+                    "Check stock for the items in order ORD-1001. If you don't know the SKUs, check SKU-APL-01, SKU-KBD-07 and SKU-MON-22."
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:56.527128Z",
+            "attributes": {
+                "response": "Here's the stock information for the items:\n\n- **Wireless Earbuds (SKU-APL-01):**\n  - On-hand quantity: 142\n  - Reorder needed: No\n\n- **Mechanical Keyboard (SKU-KBD-07):**\n  - On-hand quantity: 8\n  - Reorder needed: Yes\n\n- **27-inch Monitor (SKU-MON-22):**\n  - On-hand quantity: 0\n  - Reorder needed: Yes\n  - **Note: This item is out of stock.**\n\nIf you need further assistance or information about the order, please let me know!"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "google.adk.runners.Runner.run_async",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "38ce2e3850c5e71a",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "ef680f53d0bb6d3e",
+    "start_time": "2026-06-18T01:28:52.862332Z",
+    "end_time": "2026-06-18T01:28:56.527188Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/order_tracking/async_runner.py:81",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "agent.adk",
+        "last.inference": "af9e1a45b2dee10d:*",
+        "span.type": "agentic.turn",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "entity.count": 1,
+        "span.subtype": "turn"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:52.862368Z",
+            "attributes": {
+                "input": [
+                    "Check stock for the items in order ORD-1001. If you don't know the SKUs, check SKU-APL-01, SKU-KBD-07 and SKU-MON-22."
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:56.527180Z",
+            "attributes": {
+                "response": "Here's the stock information for the items:\n\n- **Wireless Earbuds (SKU-APL-01):**\n  - On-hand quantity: 142\n  - Reorder needed: No\n\n- **Mechanical Keyboard (SKU-KBD-07):**\n  - On-hand quantity: 8\n  - Reorder needed: Yes\n\n- **27-inch Monitor (SKU-MON-22):**\n  - On-hand quantity: 0\n  - Reorder needed: Yes\n  - **Note: This item is out of stock.**\n\nIf you need further assistance or information about the order, please let me know!"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "workflow",
+    "context": {
+        "trace_id": "b6e94e23688a0bb32d7d2bc96fe61184",
+        "span_id": "ef680f53d0bb6d3e",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-06-18T01:28:52.862279Z",
+    "end_time": "2026-06-18T01:28:56.527194Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/order_tracking/async_runner.py:81",
+        "scope.agentic.session": "session_2",
+        "scope.agentic.turn": "805276b93a6a576e459f3ace6b27d2ea",
+        "workflow.name": "order_tracking_asyncio",
+        "span.type": "workflow",
+        "entity.1.name": "order_tracking_asyncio",
+        "entity.1.type": "workflow.generic",
+        "entity.2.type": "app_hosting.generic",
+        "entity.2.name": "generic",
+        "last.inference": "af9e1a45b2dee10d:*"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+]
