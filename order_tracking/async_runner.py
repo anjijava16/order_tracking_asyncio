@@ -24,7 +24,12 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types as genai_types
 
-from .agent import ORDER_AGENTS, support_agent
+# Support both module execution (`python -m order_tracking.async_runner`) and
+# direct script execution (`python order_tracking/async_runner.py`).
+try:
+    from .agent import ORDER_AGENTS, support_agent
+except ImportError:  # pragma: no cover - path execution fallback
+    from order_tracking.agent import ORDER_AGENTS, support_agent
 
 APP_NAME = "order_tracking_demo"
 
