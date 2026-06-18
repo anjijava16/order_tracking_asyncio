@@ -1,0 +1,535 @@
+[{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.completion",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "bfa7ea546bf54fad",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "caac40945230b0fc",
+    "start_time": "2026-06-18T01:28:52.967127Z",
+    "end_time": "2026-06-18T01:28:52.969691Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/main.py:2420",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "scope.agentic.invocation": "207aafd93f7f5ed22afa53fe0001c7f6",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:52.967195Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a shipping and logistics specialist. Use the get_shipping_details tool to report the carrier, tracking number and estimated delivery date. If the order has not shipped yet, say so clearly.\\n\\nYou are an agent. Your internal name is \\\"shipping_agent\\\". The description about you is \\\"Tracks carrier, tracking number and delivery ETA.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: inventory_agent\\nAgent description: Checks stock levels and reorder needs for ordered items.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `inventory_agent`, `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Where is order ORD-1001 and when will it arrive?\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:52.969657Z",
+            "attributes": {}
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:52.969665Z",
+            "attributes": {}
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "251956920c5154a4",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "074b310207ea5a8c",
+    "start_time": "2026-06-18T01:28:52.974588Z",
+    "end_time": "2026-06-18T01:28:54.144631Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/openai/_legacy_response.py:384",
+        "workflow.name": "order_tracking_asyncio",
+        "span.type": "inference.modelapi",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "scope.agentic.invocation": "207aafd93f7f5ed22afa53fe0001c7f6"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.acompletion",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "074b310207ea5a8c",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "caac40945230b0fc",
+    "start_time": "2026-06-18T01:28:52.970180Z",
+    "end_time": "2026-06-18T01:28:54.145268Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/llms/openai/openai.py:616",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "entity.3.name": "get_shipping_details",
+        "entity.3.type": "tool.function",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "scope.agentic.invocation": "207aafd93f7f5ed22afa53fe0001c7f6",
+        "entity.count": 3,
+        "span.subtype": "tool_call"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:52.970244Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a shipping and logistics specialist. Use the get_shipping_details tool to report the carrier, tracking number and estimated delivery date. If the order has not shipped yet, say so clearly.\\n\\nYou are an agent. Your internal name is \\\"shipping_agent\\\". The description about you is \\\"Tracks carrier, tracking number and delivery ETA.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: inventory_agent\\nAgent description: Checks stock levels and reorder needs for ordered items.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `inventory_agent`, `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Where is order ORD-1001 and when will it arrive?\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.145230Z",
+            "attributes": {
+                "response": "{\"assistant\": null}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:54.145247Z",
+            "attributes": {
+                "completion_tokens": 19,
+                "prompt_tokens": 467,
+                "total_tokens": 486,
+                "finish_reason": "tool_calls",
+                "finish_type": "tool_call"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "google.adk.tools.function_tool.FunctionTool.run_async",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "edda15fcd6874db0",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "caac40945230b0fc",
+    "start_time": "2026-06-18T01:28:54.146419Z",
+    "end_time": "2026-06-18T01:28:54.146596Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/google/adk/flows/llm_flows/functions.py:788",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "tool.adk",
+        "entity.1.name": "get_shipping_details",
+        "entity.1.description": "Return carrier, tracking number and ETA for an order.\n\nArgs:\n    order_id: The order identifier, e.g. ``\"ORD-1001\"``.\n\nReturns:\n    A dict with shipment details, or an error if the order is unknown.",
+        "entity.2.name": "shipping_agent",
+        "entity.2.type": "agent.adk",
+        "span.type": "agentic.tool.invocation",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "scope.agentic.invocation": "207aafd93f7f5ed22afa53fe0001c7f6",
+        "entity.count": 2,
+        "span.subtype": "content_generation",
+        "inference.decision.span.id": "074b310207ea5a8c"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.146473Z",
+            "attributes": {
+                "input": "{\"order_id\": \"ORD-1001\"}"
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.146578Z",
+            "attributes": {
+                "response": "{'status': 'success', 'carrier': 'UPS', 'tracking_number': '1Z999AA10123456784', 'eta': '2026-06-11', 'shipped': True}"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.completion",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "25ec8ad4d07a20c2",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "caac40945230b0fc",
+    "start_time": "2026-06-18T01:28:54.149081Z",
+    "end_time": "2026-06-18T01:28:54.149449Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/main.py:2420",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "scope.agentic.invocation": "207aafd93f7f5ed22afa53fe0001c7f6",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.149172Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a shipping and logistics specialist. Use the get_shipping_details tool to report the carrier, tracking number and estimated delivery date. If the order has not shipped yet, say so clearly.\\n\\nYou are an agent. Your internal name is \\\"shipping_agent\\\". The description about you is \\\"Tracks carrier, tracking number and delivery ETA.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: inventory_agent\\nAgent description: Checks stock levels and reorder needs for ordered items.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `inventory_agent`, `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Where is order ORD-1001 and when will it arrive?\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"carrier\\\": \\\"UPS\\\", \\\"tracking_number\\\": \\\"1Z999AA10123456784\\\", \\\"eta\\\": \\\"2026-06-11\\\", \\\"shipped\\\": true}\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:54.149430Z",
+            "attributes": {}
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:54.149436Z",
+            "attributes": {}
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "openai.resources.chat.completions.AsyncCompletions.create",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "b9b8d673e585a565",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "9b90f8bec463cd4e",
+    "start_time": "2026-06-18T01:28:54.150112Z",
+    "end_time": "2026-06-18T01:28:55.256476Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/openai/_legacy_response.py:384",
+        "workflow.name": "order_tracking_asyncio",
+        "span.type": "inference.modelapi",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "scope.agentic.invocation": "207aafd93f7f5ed22afa53fe0001c7f6",
+        "span.subtype": "turn_end"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "litellm.llms.openai.openai.OpenAIChatCompletion.acompletion",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "9b90f8bec463cd4e",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "caac40945230b0fc",
+    "start_time": "2026-06-18T01:28:54.149615Z",
+    "end_time": "2026-06-18T01:28:55.256995Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/litellm/llms/openai/openai.py:616",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "inference.openai",
+        "entity.1.provider_name": "api.openai.com",
+        "entity.1.inference_endpoint": "https://api.openai.com/v1",
+        "entity.2.name": "gpt-4o",
+        "entity.2.type": "model.llm.gpt-4o",
+        "span.type": "inference",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "scope.agentic.invocation": "207aafd93f7f5ed22afa53fe0001c7f6",
+        "entity.count": 2,
+        "span.subtype": "turn_end"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:54.149708Z",
+            "attributes": {
+                "input": [
+                    "{\"system\": \"You are a shipping and logistics specialist. Use the get_shipping_details tool to report the carrier, tracking number and estimated delivery date. If the order has not shipped yet, say so clearly.\\n\\nYou are an agent. Your internal name is \\\"shipping_agent\\\". The description about you is \\\"Tracks carrier, tracking number and delivery ETA.\\\".\\n\\n\\nYou have a list of other agents to transfer to:\\n\\n\\nAgent name: order_tracking_coordinator\\nAgent description: Coordinates the order-tracking specialist agents.\\n\\n\\nAgent name: order_status_agent\\nAgent description: Reports the high-level fulfilment status of an order.\\n\\n\\nAgent name: inventory_agent\\nAgent description: Checks stock levels and reorder needs for ordered items.\\n\\n\\nAgent name: payment_agent\\nAgent description: Verifies the payment / billing state of an order.\\n\\n\\nAgent name: support_agent\\nAgent description: Composes a friendly customer-facing summary of an order.\\n\\n\\nIf you are the best to answer the question according to your description, you\\ncan answer it.\\n\\nIf another agent is better for answering the question according to its\\ndescription, call `transfer_to_agent` function to transfer the\\nquestion to that agent. When transferring, do not generate any text other than\\nthe function call.\\n\\n**NOTE**: the only available agents for `transfer_to_agent` function are `inventory_agent`, `order_status_agent`, `order_tracking_coordinator`, `payment_agent`, `support_agent`.\\n\\nIf neither you nor the other agents are best for the question, transfer to your parent agent order_tracking_coordinator.\\n\"}",
+                    "{\"user\": \"Where is order ORD-1001 and when will it arrive?\"}",
+                    "{\"tool\": \"{\\\"status\\\": \\\"success\\\", \\\"carrier\\\": \\\"UPS\\\", \\\"tracking_number\\\": \\\"1Z999AA10123456784\\\", \\\"eta\\\": \\\"2026-06-11\\\", \\\"shipped\\\": true}\"}"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:55.256963Z",
+            "attributes": {
+                "response": "{\"assistant\": \"Your order ORD-1001 has been shipped via UPS. The tracking number is 1Z999AA10123456784, and it is estimated to arrive on 2026-06-11.\"}"
+            }
+        },
+        {
+            "name": "metadata",
+            "timestamp": "2026-06-18T01:28:55.256980Z",
+            "attributes": {
+                "completion_tokens": 42,
+                "prompt_tokens": 538,
+                "total_tokens": 580,
+                "finish_reason": "stop",
+                "finish_type": "success"
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "google.adk.agents.base_agent.BaseAgent.run_async",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "caac40945230b0fc",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "84d007e05ad13323",
+    "start_time": "2026-06-18T01:28:52.860504Z",
+    "end_time": "2026-06-18T01:28:55.257747Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/.venv/lib/python3.11/site-packages/google/adk/runners.py:430",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "agent.adk",
+        "entity.1.name": "shipping_agent",
+        "entity.1.description": "Tracks carrier, tracking number and delivery ETA.",
+        "entity.1.from_agent_span_id": "84d007e05ad13323",
+        "last.inference": "9b90f8bec463cd4e:*",
+        "span.type": "agentic.invocation",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "scope.agentic.invocation": "207aafd93f7f5ed22afa53fe0001c7f6",
+        "entity.count": 1,
+        "span.subtype": "content_processing"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:52.860567Z",
+            "attributes": {
+                "input": [
+                    "Where is order ORD-1001 and when will it arrive?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:55.257733Z",
+            "attributes": {
+                "response": "Your order ORD-1001 has been shipped via UPS. The tracking number is 1Z999AA10123456784, and it is estimated to arrive on 2026-06-11."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "google.adk.runners.Runner.run_async",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "84d007e05ad13323",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "224eeab0b9c8104a",
+    "start_time": "2026-06-18T01:28:52.859787Z",
+    "end_time": "2026-06-18T01:28:55.257791Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/order_tracking/async_runner.py:81",
+        "workflow.name": "order_tracking_asyncio",
+        "entity.1.type": "agent.adk",
+        "last.inference": "9b90f8bec463cd4e:*",
+        "span.type": "agentic.turn",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "entity.count": 1,
+        "span.subtype": "turn"
+    },
+    "events": [
+        {
+            "name": "data.input",
+            "timestamp": "2026-06-18T01:28:52.859829Z",
+            "attributes": {
+                "input": [
+                    "Where is order ORD-1001 and when will it arrive?"
+                ]
+            }
+        },
+        {
+            "name": "data.output",
+            "timestamp": "2026-06-18T01:28:55.257783Z",
+            "attributes": {
+                "response": "Your order ORD-1001 has been shipped via UPS. The tracking number is 1Z999AA10123456784, and it is estimated to arrive on 2026-06-11."
+            }
+        }
+    ],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+,{
+    "name": "workflow",
+    "context": {
+        "trace_id": "4098a815897f3863fe5a3ebc90e858e2",
+        "span_id": "224eeab0b9c8104a",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2026-06-18T01:28:52.859713Z",
+    "end_time": "2026-06-18T01:28:55.257797Z",
+    "status": {
+        "status_code": "OK"
+    },
+    "attributes": {
+        "monocle_apptrace.version": "0.8.4",
+        "monocle_apptrace.language": "python",
+        "span_source": "/Users/welcome/Desktop/sai_welcome_hanuman/order_tracking_asyncio/order_tracking/async_runner.py:81",
+        "scope.agentic.session": "session_1",
+        "scope.agentic.turn": "1c1bfcd656706baa4ecdf5e6934cddf5",
+        "workflow.name": "order_tracking_asyncio",
+        "span.type": "workflow",
+        "entity.1.name": "order_tracking_asyncio",
+        "entity.1.type": "workflow.generic",
+        "entity.2.type": "app_hosting.generic",
+        "entity.2.name": "generic",
+        "last.inference": "9b90f8bec463cd4e:*"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "service.name": "order_tracking_asyncio"
+        },
+        "schema_url": ""
+    }
+}
+]
