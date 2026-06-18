@@ -1,15 +1,15 @@
-# Order Tracking — Async Multi-Agent Demo (Google ADK + asyncio + LiteLLM + Monocle)
+# Order Tracking — Async Multi-Agent Service (Google ADK + asyncio + LiteLLM + Monocle)
 
-An end-to-end, production-shaped example that shows how to run **multiple
-independent AI agents concurrently** using Python `asyncio` and **Google's Agent
-Development Kit (ADK)**. Each agent is a domain specialist (order status,
-shipping, inventory, payment, support) backed by an LLM through **LiteLLM**, and
-the entire run is instrumented with **Monocle** (`monocle_apptrace`) so every
-agent, tool call, and LLM request is captured as a distributed trace and shipped
-to file + **Okahu** for observability.
+A production-grade service that runs **multiple independent AI agents
+concurrently** using Python `asyncio` and **Google's Agent Development Kit
+(ADK)**. Each agent is a domain specialist (order status, shipping, inventory,
+payment, support) backed by an LLM through **LiteLLM**, and the entire run is
+instrumented with **Monocle** (`monocle_apptrace`) so every agent, tool call,
+and LLM request is captured as a distributed trace and shipped to file +
+**Okahu** for observability.
 
-> TL;DR: five specialist agents answer a single order question *at the same
-> time*. Total wall-clock time ≈ the slowest agent, not the sum of all five.
+> Five specialist agents answer a single order question *at the same time*.
+> Total wall-clock time ≈ the slowest agent, not the sum of all five.
 
 ---
 
@@ -27,11 +27,13 @@ to file + **Okahu** for observability.
 - [Data model (mock backends)](#data-model-mock-backends)
 - [Setup](#setup)
 - [Configuration](#configuration)
-- [Running the demo](#running-the-demo)
+- [Running the service](#running-the-service)
 - [Three orchestration patterns](#three-orchestration-patterns)
 - [End-to-end example walkthrough](#end-to-end-example-walkthrough)
+- [Production-grade order tracking with asyncio](#production-grade-order-tracking-with-asyncio)
 - [Extending the project](#extending-the-project)
 - [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
 
 ---
 
@@ -41,7 +43,7 @@ Most agent tutorials call one LLM at a time, sequentially. Real order-tracking
 needs answers from several independent systems (OMS, carrier API, warehouse,
 payment gateway) and there is no reason to wait for them one after another.
 
-This repo demonstrates the **"many at once"** pattern:
+This repo implements the **"many at once"** pattern:
 
 - Each system is modeled as an **independent ADK `Agent`** with its own tools.
 - All agents are launched concurrently with `asyncio.gather`.
@@ -372,7 +374,7 @@ GOOGLE_API_KEY=your-ai-studio-api-key
 
 ---
 
-## Running the demo
+## Running the service
 
 ```bash
 # Default order (ORD-1001)
@@ -471,6 +473,47 @@ Good news! Your order ORD-1001 shipped via UPS and should arrive soon...
 
 ---
 
+## Production-grade order tracking with asyncio
+
+The concurrency and observability foundation here is built to run in
+production. To operate it as a hardened service, layer in the following:
+
+### Concurrency & resilience
+
+- **Bounded fan-out** — wrap `asyncio.gather` with an `asyncio.Semaphore` so a
+  burst of orders cannot exhaust connection pools to the OMS / carrier APIs.
+- **Per-agent timeouts** — guard every agent with `asyncio.wait_for(...)` so one
+  slow downstream system never blocks the whole response.
+- **Retries with backoff** — wrap flaky network tools in exponential-backoff
+  retries (e.g. `tenacity`) and treat `return_exceptions=True` results as
+  isolated, recoverable failures.
+- **Circuit breakers** — short-circuit a repeatedly failing backend so the
+  remaining agents still return partial answers.
+- **Graceful degradation** — surface `ERROR: ...` for a single agent instead of
+  failing the entire request; the customer still gets the data that resolved.
+
+### Scale & deployment
+
+- **Stateless workers** — keep `Runner` + `InMemorySessionService` per-request,
+  then move sessions to a shared store (Redis / DB) for horizontal scaling.
+- **Async I/O end-to-end** — use async HTTP clients (`httpx.AsyncClient`) for
+  real OMS / carrier / payment calls so the event loop is never blocked.
+- **Backpressure** — front the service with a queue (Celery / RQ / Cloud Tasks)
+  for spiky traffic and to smooth rate limits on LLM and carrier APIs.
+- **Config & secrets** — load model ids and provider keys from a secrets
+  manager, not `.env`, in production.
+
+### Observability & evaluation
+
+- **Distributed tracing** — every workflow → agent → tool → inference span is
+  already captured by Monocle and shipped to Okahu; use it to debug latency and
+  tool-trajectory in production traffic.
+- **SLOs** — alert on wall-clock p95 (≈ slowest agent) and per-agent error rate.
+- **Continuous eval** — replay traced requests to score response quality and
+  tool accuracy before each release.
+
+---
+
 ## Extending the project
 
 - **Add an agent**: define a new `Agent` in `agent.py`, add it to `ORDER_AGENTS`,
@@ -489,11 +532,55 @@ Good news! Your order ORD-1001 shipped via UPS and should arrive soon...
 |---------|-------|-----|
 | `Missing credentials ... OPENAI_API_KEY` | `SHIPPING_MODEL` defaults to `gpt-4o` with no key | Add `OPENAI_API_KEY` to `.env` or change `SHIPPING_MODEL` |
 | `attempted relative import with no known parent package` | Ran the file as a plain script | Already handled by the import fallback; or use `python -m order_tracking.async_runner` |
-| `App name mismatch detected` warning | ADK app-name heuristic vs. configured `APP_NAME` | Harmless for this demo; safe to ignore |
+| `App name mismatch detected` warning | ADK app-name heuristic vs. configured `APP_NAME` | Harmless; safe to ignore |
 | No files in `.monocle/` | Run didn't reach telemetry flush | Ensure the run completes; check the `file` exporter is in `monocle_exporters_list` |
 | `uv` cache permission errors | Sandboxed shell | Run in a normal terminal (cache lives under `~/.cache/uv`) |
 
 ---
 
-Built to demonstrate **concurrent multi-agent orchestration** with Google ADK,
+## Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+- **Repository:** [github.com/anjijava16/order_tracking_asyncio](https://github.com/anjijava16/order_tracking_asyncio)
+- **Author / Maintainer:** [@anjijava16](https://github.com/anjijava16)
+
+### How to contribute
+
+1. **Fork** the repo and create your feature branch:
+   ```bash
+   git checkout -b feat/your-feature
+   ```
+2. **Make your change** and keep it focused (one feature/fix per PR).
+3. **Run the service** to make sure nothing is broken:
+   ```bash
+   uv run python -m order_tracking.async_runner ORD-1001
+   ```
+4. **Commit** using a clear, conventional message:
+   ```bash
+   git commit -m "feat: add <your-feature>"
+   ```
+5. **Push** and open a **Pull Request** against the main repository:
+   ```bash
+   git push origin feat/your-feature
+   ```
+
+### Pull request purpose
+
+Use PRs to propose and review changes such as:
+
+- Adding a new specialist agent or tool (e.g. returns, fraud, notifications).
+- Hardening the async orchestration (timeouts, retries, circuit breakers).
+- Wiring real OMS / carrier / payment backends in place of the mock data.
+- Improving observability, evaluation, or documentation.
+
+Please describe **what** changed and **why**, link any related issue, and
+include sample output or traces where relevant.
+
+---
+
+Built for **concurrent multi-agent orchestration** with Google ADK,
 asyncio, LiteLLM, and first-class observability via Monocle + Okahu.
+
+Maintained by [@anjijava16](https://github.com/anjijava16) ·
+[order_tracking_asyncio](https://github.com/anjijava16/order_tracking_asyncio)
