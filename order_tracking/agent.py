@@ -9,6 +9,9 @@ with ``adk web .`` for interactive testing.
 from __future__ import annotations
 
 from google.adk.agents import Agent
+from google.adk.models.lite_llm import LiteLlm
+import os
+model_name = os.getenv("SHIPPING_MODEL", "gpt-4o")
 
 from .tools import (
     check_inventory,
@@ -24,7 +27,8 @@ MODEL = "gemini-3-flash-preview"
 # ---------------------------------------------------------------------------
 order_status_agent = Agent(
     name="order_status_agent",
-    model=MODEL,
+    #model=MODEL,
+    model=LiteLlm(model=model_name),
     description="Reports the high-level fulfilment status of an order.",
     instruction=(
         "You are an order status specialist. Use the get_order_status tool to "
@@ -39,7 +43,7 @@ order_status_agent = Agent(
 # ---------------------------------------------------------------------------
 shipping_agent = Agent(
     name="shipping_agent",
-    model=MODEL,
+    model=LiteLlm(model=model_name),
     description="Tracks carrier, tracking number and delivery ETA.",
     instruction=(
         "You are a shipping and logistics specialist. Use the "
@@ -55,7 +59,7 @@ shipping_agent = Agent(
 # ---------------------------------------------------------------------------
 inventory_agent = Agent(
     name="inventory_agent",
-    model=MODEL,
+    model=LiteLlm(model=model_name),
     description="Checks stock levels and reorder needs for ordered items.",
     instruction=(
         "You are an inventory specialist. Given a SKU, use the check_inventory "
@@ -70,7 +74,7 @@ inventory_agent = Agent(
 # ---------------------------------------------------------------------------
 payment_agent = Agent(
     name="payment_agent",
-    model=MODEL,
+    model=LiteLlm(model=model_name),
     description="Verifies the payment / billing state of an order.",
     instruction=(
         "You are a payments specialist. Use the get_payment_status tool to "
@@ -85,7 +89,7 @@ payment_agent = Agent(
 # ---------------------------------------------------------------------------
 support_agent = Agent(
     name="support_agent",
-    model=MODEL,
+    model=LiteLlm(model=model_name),
     description="Composes a friendly customer-facing summary of an order.",
     instruction=(
         "You are a customer support agent. You may be given findings from the "
@@ -113,7 +117,7 @@ ORDER_AGENTS = [
 # Root agent for `adk web .` — delegates to the specialists.
 root_agent = Agent(
     name="order_tracking_coordinator",
-    model=MODEL,
+    model=LiteLlm(model=model_name),
     description="Coordinates the order-tracking specialist agents.",
     instruction=(
         "You are the order-tracking coordinator. Route requests to the right "

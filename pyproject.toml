@@ -6,8 +6,12 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "Apache-2.0" }
 dependencies = [
+    "litellm==1.80.16",
     "google-adk>=1.0.0",
+    "google-adk[a2a]==1.19.0",
     "google-genai>=1.0.0",
+    "mcp==1.25.0",
+    "monocle_apptrace",
 ]
 
 [project.optional-dependencies]

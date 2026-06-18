@@ -24,6 +24,9 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types as genai_types
 
+from monocle_apptrace import setup_monocle_telemetry
+setup_monocle_telemetry(workflow_name = 'order_tracking_asyncio', monocle_exporters_list = 'file,okahu')
+
 # Support both module execution (`python -m order_tracking.async_runner`) and
 # direct script execution (`python order_tracking/async_runner.py`).
 try:
